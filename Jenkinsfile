@@ -46,6 +46,6 @@ pipeline {
   }
   tools {
     gradle 'GRADLE_LATEST'
-    sonar-scanner 'SonarQubeServer'
+    sonar-scanner 'SonarQubeScanner'
   }
 }
