@@ -19,10 +19,11 @@ pipeline {
         stage('Code Analysis') {
           agent any
           steps {
-            withSonarQubeEnv('SonarQubeServer') {
-              waitForQualityGate true
+            withSonarQubeEnv('SonarQubeScanner') {
+              bat(script: 'sonar-scanner', returnStatus: true, returnStdout: true)
             }
 
+            waitForQualityGate true
           }
         }
         stage('Test reporting') {
