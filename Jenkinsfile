@@ -19,7 +19,7 @@ pipeline {
         stage('Code Analysis') {
           agent any
           steps {
-            withSonarQubeEnv('SonarQubeScanner') {
+            withSonarQubeEnv('SonarQubeServer') {
               bat(script: 'sonar-scanner', returnStatus: true, returnStdout: true)
             }
 
