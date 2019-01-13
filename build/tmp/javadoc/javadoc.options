@@ -1,0 +1,8 @@
+-classpath 'C:\\Users\\nabou\\Downloads\\MatrixApp\\build\\classes\\java\\main;C:\\Users\\nabou\\Downloads\\MatrixApp\\build\\resources\\main'
+-d 'C:\\Users\\nabou\\Downloads\\MatrixApp\\build\\docs\\javadoc'
+-doctitle 'bsbm 1.0-SNAPSHOT API'
+-quiet 
+-windowtitle 'bsbm 1.0-SNAPSHOT API'
+'C:\\Users\\nabou\\Downloads\\MatrixApp\\src\\main\\java\\exception\\NoSquareException.java'
+'C:\\Users\\nabou\\Downloads\\MatrixApp\\src\\main\\java\\model\\Matrix.java'
+'C:\\Users\\nabou\\Downloads\\MatrixApp\\src\\main\\java\\service\\MatrixMathematics.java'

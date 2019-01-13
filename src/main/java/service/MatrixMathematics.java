@@ -48,7 +48,9 @@ public class MatrixMathematics {
 			return 1;
 		return -1;
 	}
-
+	public int add(int a, int b){
+		return a+b;
+	}
 	/**
 	 * Creates a submatrix excluding the given row and column
 	 *
