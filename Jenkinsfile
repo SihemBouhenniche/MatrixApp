@@ -23,7 +23,6 @@ pipeline {
               bat(script: 'sonar-scanner', returnStatus: true, returnStdout: true)
             }
 
-            waitForQualityGate true
           }
         }
         stage('Test reporting') {
@@ -34,7 +33,7 @@ pipeline {
       }
     }
     stage('Deployment') {
-      when { // si la branche production
+      when {
         branch 'master'
       }
       steps {
@@ -42,7 +41,7 @@ pipeline {
       }
     }
     stage('Slack Notification') {
-      when { // si la branche production
+      when {
         branch 'master'
       }
       steps {
