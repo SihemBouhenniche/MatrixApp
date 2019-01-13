@@ -5,6 +5,8 @@ pipeline {
       agent any
       steps {
         bat(script: 'gradle build', returnStatus: true, returnStdout: true)
+        bat(script: 'gradle javadoc', returnStatus: true, returnStdout: true)
+        bat(script: 'gradle uploadArchives', returnStatus: true, returnStdout: true)
       }
     }
     stage('Mail Notification') {
