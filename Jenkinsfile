@@ -2,15 +2,14 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      agent any
       steps {
-        bat 'gradle build'
-        bat 'gradle javadoc'
-        bat 'gradle uploadArchives'
+        bat(script: 'gradle build', returnStatus: true, returnStdout: true)
       }
     }
     stage('Mail Notification') {
       steps {
-        mail(subject: 'Build Report', from: 'fs_bouhenniche@esi.dz', to: 'fm_bourouais@esi.dz', body: 'Le build de projet a bien été effectué')
+        mail(subject: 'Build Report', from: 'fs_bouhenniche@esi.dz', to: 'fm_bourouais@esi.dz', body: 'Le build de projet a bien Ã©tÃ© effectuÃ©')
       }
     }
   }
