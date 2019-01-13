@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Mail Notification') {
       steps {
-        mail(subject: 'Build Report', from: 'fs_bouhenniche@esi.dz', to: 'fm_bourouais@esi.dz', body: 'Le build de projet a bien été effectué')
+        mail(subject: 'Build Report Confirm', from: 'fs_bouhenniche@esi.dz', to: 'fm_bourouais@esi.dz', body: 'Le build de projet a bien Ã©tÃ© effectuÃ©')
       }
     }
     stage('Code Analysis') {
@@ -35,7 +35,7 @@ pipeline {
     }
     stage('Slack Notification') {
       steps {
-        slackSend(attachments: 'depolyment success', baseUrl: 'https://worksihem.slack.com/services/hooks/jenkins-ci/', message: 'le d�ploiement � �t� effectu� avec succ�es ', token: 'HDIDjUcq505rKhOsFIqxcBGK')
+        slackSend(attachments: 'depolyment success', baseUrl: 'https://worksihem.slack.com/services/hooks/jenkins-ci/', message: 'le déploiement à été effectué avec succées ', token: 'HDIDjUcq505rKhOsFIqxcBGK')
       }
     }
   }
