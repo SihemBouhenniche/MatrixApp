@@ -19,10 +19,7 @@ pipeline {
         stage('Code Analysis') {
           agent any
           steps {
-            withSonarQubeEnv('SonarQubeServer') {
-              bat(script: 'sonar-scanner', returnStatus: true, returnStdout: true)
-            }
-
+            bat(script: 'sonar-scanner', returnStatus: true, returnStdout: true)
           }
         }
         stage('Test reporting') {
