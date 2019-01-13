@@ -33,6 +33,11 @@ pipeline {
         bat(script: 'gradle uploadArchives', returnStatus: true, returnStdout: true)
       }
     }
+    stage('Slack Notification') {
+      steps {
+        slackSend(attachments: 'depolyment success', baseUrl: 'https://worksihem.slack.com/services/hooks/jenkins-ci/', message: 'le déploiement à été effectué avec succées ', token: 'HDIDjUcq505rKhOsFIqxcBGK')
+      }
+    }
   }
   tools {
     gradle 'GRADLE_LATEST'
