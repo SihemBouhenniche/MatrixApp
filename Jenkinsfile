@@ -19,7 +19,7 @@ pipeline {
         stage('Code Analysis') {
           agent any
           steps {
-            withSonarQubeEnv('SonarQubeServer') {
+            withSonarQubeEnv('SonarQubeScanner') {
               waitForQualityGate true
             }
 
