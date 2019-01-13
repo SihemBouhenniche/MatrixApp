@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Mail Notification') {
       steps {
-        bat(script: 'gradle build', returnStatus: true, returnStdout: true)
+        mail(subject: 'Build Report', body: 'Le build à bien été effectué.', from: 'fs_bouhenniche@esi.dz', to: 'fm_bourouais@esi.dz')
       }
     }
     stage('Code Analysis') {
