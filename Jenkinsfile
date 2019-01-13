@@ -34,11 +34,17 @@ pipeline {
       }
     }
     stage('Deployment') {
+      when { // si la branche production
+        branch 'master'
+      }
       steps {
         bat(script: 'gradle uploadArchives', returnStatus: true, returnStdout: true)
       }
     }
     stage('Slack Notification') {
+      when { // si la branche production
+        branch 'master'
+      }
       steps {
         slackSend(attachments: 'depolyment success', baseUrl: 'https://worksihem.slack.com/services/hooks/jenkins-ci/', message: 'le depoliment', token: 'HDIDjUcq505rKhOsFIqxcBGK')
       }
