@@ -18,7 +18,7 @@ pipeline {
       parallel {
         stage('Code Analysis') {
           steps {
-            bat(script: 'sonar-scanner', returnStatus: true, returnStdout: true)
+            waitForQualityGate true
           }
         }
         stage('Test reporting') {
