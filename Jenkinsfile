@@ -15,8 +15,22 @@ pipeline {
       }
     }
     stage('Code Analysis') {
+      parallel {
+        stage('Code Analysis') {
+          steps {
+            bat(script: 'sonar-scanner', returnStatus: true, returnStdout: true)
+          }
+        }
+        stage('Test reporting') {
+          steps {
+            bat(script: 'gradle test', returnStatus: true, returnStdout: true)
+          }
+        }
+      }
+    }
+    stage('Deployment') {
       steps {
-        bat(script: 'sonar-scanner', returnStatus: true, returnStdout: true)
+        bat(script: 'gradle uploadArchives', returnStatus: true, returnStdout: true)
       }
     }
   }
