@@ -17,6 +17,7 @@ pipeline {
     stage('Code Analysis') {
       parallel {
         stage('Code Analysis') {
+          agent any
           steps {
             withSonarQubeEnv('SonarQubeServer') {
               waitForQualityGate true
