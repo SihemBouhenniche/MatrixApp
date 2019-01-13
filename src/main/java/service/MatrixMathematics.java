@@ -20,7 +20,9 @@ public class MatrixMathematics {
 		}
 		return transposedMatrix;
 	}
-
+   
+   public void inversee()
+{}
 
 	/**
 	 * Determinant of a square matrix
