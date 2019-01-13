@@ -20,7 +20,6 @@ pipeline {
           agent any
           steps {
             withSonarQubeEnv('SonarQubeServer') {
-              bat(script: 'sonarStart', returnStatus: true, returnStdout: true)
               bat(script: 'sonar-scanner', returnStatus: true, returnStdout: true)
             }
 
