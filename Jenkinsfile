@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  tools {
-    gradle 'GRADLE_LATEST'
-   }
   stages {
     stage('Build') {
       agent any
@@ -17,5 +14,13 @@ pipeline {
         mail(subject: 'Build Report', from: 'fs_bouhenniche@esi.dz', to: 'fm_bourouais@esi.dz', body: 'Le build de projet a bien été effectué')
       }
     }
+    stage('Code Analysis') {
+      steps {
+        bat(script: 'sonar-scanner', returnStatus: true, returnStdout: true)
+      }
+    }
+  }
+  tools {
+    gradle 'GRADLE_LATEST'
   }
 }
